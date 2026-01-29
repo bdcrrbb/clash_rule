@@ -9,6 +9,7 @@ function main(config) {
     "personalfix": {
       type: "http",
       behavior: "classical",
+      format: "text",
       url: "https://raw.githubusercontent.com/bdcrrbb/clash_rule/main/personalfix.list",
       path: "./ruleset/personalfix.yaml",
       interval: 86400
@@ -16,27 +17,28 @@ function main(config) {
     "ai": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/AI.yaml",
       path: "./ruleset/ai.yaml",
       interval: 86400
     },
     "bilibili-hmt": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/BilibiliHMT.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/BilibiliHMT.yaml",
       path: "./ruleset/bilibili-hmt.yaml",
       interval: 86400
     },
     "bilibili": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Bilibili.yaml",
       path: "./ruleset/bilibili.yaml",
       interval: 86400
     },
     "unban1": {
       type: "http",
       behavior: "classical",
+      format: "text",
       url: "https://raw.githubusercontent.com/zsokami/ACL4SSR/main/UnBan1.list",
       path: "./ruleset/unban1.yaml",
       interval: 86400
@@ -44,27 +46,28 @@ function main(config) {
     "unban": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/UnBan.yaml",
       path: "./ruleset/unban.yaml",
       interval: 86400
     },
     "download": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Download.yaml",
       path: "./ruleset/download.yaml",
       interval: 86400
     },
     "banad": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/BanAD.yaml",
       path: "./ruleset/banad.yaml",
       interval: 86400
     },
     "googlecn": {
       type: "http",
       behavior: "classical",
+      format: "text",
       url: "https://raw.githubusercontent.com/zsokami/ACL4SSR/main/GoogleCN.list",
       path: "./ruleset/googlecn.yaml",
       interval: 86400
@@ -72,35 +75,35 @@ function main(config) {
     "steamcn": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/SteamCN.yaml",
       path: "./ruleset/steamcn.yaml",
       interval: 86400
     },
     "microsoft": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Microsoft.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Microsoft.yaml",
       path: "./ruleset/microsoft.yaml",
       interval: 86400
     },
     "proxygfw": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyGFWlist.yaml",
       path: "./ruleset/proxygfw.yaml",
       interval: 86400
     },
     "chinadomain": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaDomain.yaml",
       path: "./ruleset/chinadomain.yaml",
       interval: 86400
     },
     "chinacompanyip": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list",
+      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaCompanyIp.yaml",
       path: "./ruleset/chinacompanyip.yaml",
       interval: 86400
     }
