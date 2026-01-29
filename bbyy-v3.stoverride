@@ -1,0 +1,293 @@
+name: bbyy-rules
+desc: Regional proxy groups with Auto/Select + ACL4SSR rules
+
+rule-providers:
+  personalfix:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/bdcrrbb/clash_rule/main/personalfix.list"
+    path: ./ruleset/personalfix.yaml
+    interval: 86400
+  ai:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list"
+    path: ./ruleset/ai.yaml
+    interval: 86400
+  bilibili-hmt:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/BilibiliHMT.list"
+    path: ./ruleset/bilibili-hmt.yaml
+    interval: 86400
+  bilibili:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list"
+    path: ./ruleset/bilibili.yaml
+    interval: 86400
+  unban1:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/zsokami/ACL4SSR/main/UnBan1.list"
+    path: ./ruleset/unban1.yaml
+    interval: 86400
+  unban:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list"
+    path: ./ruleset/unban.yaml
+    interval: 86400
+  download:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list"
+    path: ./ruleset/download.yaml
+    interval: 86400
+  banad:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list"
+    path: ./ruleset/banad.yaml
+    interval: 86400
+  googlecn:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/zsokami/ACL4SSR/main/GoogleCN.list"
+    path: ./ruleset/googlecn.yaml
+    interval: 86400
+  steamcn:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list"
+    path: ./ruleset/steamcn.yaml
+    interval: 86400
+  microsoft:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Microsoft.list"
+    path: ./ruleset/microsoft.yaml
+    interval: 86400
+  proxygfw:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
+    path: ./ruleset/proxygfw.yaml
+    interval: 86400
+  chinadomain:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
+    path: ./ruleset/chinadomain.yaml
+    interval: 86400
+  chinacompanyip:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list"
+    path: ./ruleset/chinacompanyip.yaml
+    interval: 86400
+
+# Use #!replace to completely replace original proxy-groups
+proxy-groups: #!replace
+  # ============ Main Selector ============
+  - name: "✈️ 起飞"
+    type: select
+    proxies:
+      - "🌐 全部节点-Auto"
+      - "🌐 全部节点-Select"
+      - "🇭🇰 香港-Auto"
+      - "🇭🇰 香港-Select"
+      - "🇹🇼 台湾-Auto"
+      - "🇹🇼 台湾-Select"
+      - "🇸🇬 新加坡-Auto"
+      - "🇸🇬 新加坡-Select"
+      - "🇺🇸 美国-Auto"
+      - "🇺🇸 美国-Select"
+      - "🇪🇺 欧洲-Auto"
+      - "🇪🇺 欧洲-Select"
+      - "🌍 其他-Auto"
+      - "🌍 其他-Select"
+
+  # ============ Functional Groups ============
+  - name: "🤖 AI"
+    type: select
+    proxies:
+      - "🇺🇸 美国-Auto"
+      - "🇺🇸 美国-Select"
+      - "🇸🇬 新加坡-Auto"
+      - "🇸🇬 新加坡-Select"
+      - "✈️ 起飞"
+      - "🇭🇰 香港-Auto"
+      - "🇭🇰 香港-Select"
+      - "🇹🇼 台湾-Auto"
+      - "🇹🇼 台湾-Select"
+      - "🇪🇺 欧洲-Auto"
+      - "🇪🇺 欧洲-Select"
+
+  - name: "📺 B站"
+    type: select
+    proxies:
+      - DIRECT
+      - "🇭🇰 香港-Auto"
+      - "🇭🇰 香港-Select"
+      - "🇹🇼 台湾-Auto"
+      - "🇹🇼 台湾-Select"
+
+  - name: "Ⓜ️ Microsoft"
+    type: select
+    proxies:
+      - DIRECT
+      - "✈️ 起飞"
+      - "🇭🇰 香港-Auto"
+      - "🇺🇸 美国-Auto"
+      - "🇸🇬 新加坡-Auto"
+
+  - name: "🛩️ 墙内"
+    type: select
+    proxies:
+      - DIRECT
+      - "✈️ 起飞"
+
+  - name: "💩 广告"
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+  - name: "🌐 未知站点"
+    type: select
+    proxies:
+      - "✈️ 起飞"
+      - DIRECT
+      - "🇭🇰 香港-Auto"
+      - "🇺🇸 美国-Auto"
+      - "🇸🇬 新加坡-Auto"
+
+  # ============ All Proxies ============
+  - name: "🌐 全部节点-Auto"
+    type: url-test
+    include-all: true
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 50
+
+  - name: "🌐 全部节点-Select"
+    type: select
+    include-all: true
+
+  # ============ Regional Groups - Hong Kong ============
+  - name: "🇭🇰 香港-Auto"
+    type: url-test
+    include-all: true
+    filter: "(?i)香港|HK|Hong\\s?Kong|Hongkong"
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 50
+
+  - name: "🇭🇰 香港-Select"
+    type: select
+    include-all: true
+    filter: "(?i)香港|HK|Hong\\s?Kong|Hongkong"
+
+  # ============ Regional Groups - Taiwan ============
+  - name: "🇹🇼 台湾-Auto"
+    type: url-test
+    include-all: true
+    filter: "(?i)台湾|台灣|TW|Taiwan|台北|新北|彰化|高雄"
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 50
+
+  - name: "🇹🇼 台湾-Select"
+    type: select
+    include-all: true
+    filter: "(?i)台湾|台灣|TW|Taiwan|台北|新北|彰化|高雄"
+
+  # ============ Regional Groups - Singapore ============
+  - name: "🇸🇬 新加坡-Auto"
+    type: url-test
+    include-all: true
+    filter: "(?i)新加坡|SG|Singapore|狮城|獅城"
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 50
+
+  - name: "🇸🇬 新加坡-Select"
+    type: select
+    include-all: true
+    filter: "(?i)新加坡|SG|Singapore|狮城|獅城"
+
+  # ============ Regional Groups - USA ============
+  - name: "🇺🇸 美国-Auto"
+    type: url-test
+    include-all: true
+    filter: "(?i)美国|美國|US|USA|United\\s?States|洛杉矶|硅谷|旧金山|西雅图|纽约|芝加哥|达拉斯|凤凰城|圣何塞|拉斯维加斯|波特兰|丹佛|亚特兰大|迈阿密"
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 50
+
+  - name: "🇺🇸 美国-Select"
+    type: select
+    include-all: true
+    filter: "(?i)美国|美國|US|USA|United\\s?States|洛杉矶|硅谷|旧金山|西雅图|纽约|芝加哥|达拉斯|凤凰城|圣何塞|拉斯维加斯|波特兰|丹佛|亚特兰大|迈阿密"
+
+  # ============ Regional Groups - Europe ============
+  - name: "🇪🇺 欧洲-Auto"
+    type: url-test
+    include-all: true
+    filter: "(?i)欧洲|欧盟|EU|Europe|英国|UK|伦敦|London|德国|Germany|法兰克福|Frankfurt|法国|France|巴黎|Paris|荷兰|Netherlands|阿姆斯特丹|Amsterdam|瑞士|Switzerland|苏黎世|意大利|Italy|米兰|罗马|西班牙|Spain|马德里|瑞典|Sweden|斯德哥尔摩|挪威|Norway|奥斯陆|芬兰|Finland|赫尔辛基|丹麦|Denmark|哥本哈根|爱尔兰|Ireland|都柏林|波兰|Poland|华沙|比利时|Belgium|布鲁塞尔|奥地利|Austria|维也纳|葡萄牙|Portugal|里斯本|希腊|Greece|雅典|捷克|Czech|布拉格|匈牙利|Hungary|布达佩斯"
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 50
+
+  - name: "🇪🇺 欧洲-Select"
+    type: select
+    include-all: true
+    filter: "(?i)欧洲|欧盟|EU|Europe|英国|UK|伦敦|London|德国|Germany|法兰克福|Frankfurt|法国|France|巴黎|Paris|荷兰|Netherlands|阿姆斯特丹|Amsterdam|瑞士|Switzerland|苏黎世|意大利|Italy|米兰|罗马|西班牙|Spain|马德里|瑞典|Sweden|斯德哥尔摩|挪威|Norway|奥斯陆|芬兰|Finland|赫尔辛基|丹麦|Denmark|哥本哈根|爱尔兰|Ireland|都柏林|波兰|Poland|华沙|比利时|Belgium|布鲁塞尔|奥地利|Austria|维也纳|葡萄牙|Portugal|里斯本|希腊|Greece|雅典|捷克|Czech|布拉格|匈牙利|Hungary|布达佩斯"
+
+  # ============ Regional Groups - Others ============
+  - name: "🌍 其他-Auto"
+    type: url-test
+    include-all: true
+    filter: "(?i)^(?!.*(香港|HK|Hong Kong|台湾|台灣|TW|Taiwan|新加坡|SG|Singapore|美国|美國|US|USA|United States|洛杉矶|硅谷|旧金山|西雅图|纽约|欧洲|EU|Europe|英国|UK|伦敦|德国|Germany|法兰克福|法国|France|巴黎|荷兰|Netherlands|阿姆斯特丹|瑞士|意大利|西班牙|瑞典|挪威|芬兰|丹麦|爱尔兰|波兰|比利时|奥地利|葡萄牙|希腊|捷克|匈牙利)).*$"
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 50
+
+  - name: "🌍 其他-Select"
+    type: select
+    include-all: true
+    filter: "(?i)^(?!.*(香港|HK|Hong Kong|台湾|台灣|TW|Taiwan|新加坡|SG|Singapore|美国|美國|US|USA|United States|洛杉矶|硅谷|旧金山|西雅图|纽约|欧洲|EU|Europe|英国|UK|伦敦|德国|Germany|法兰克福|法国|France|巴黎|荷兰|Netherlands|阿姆斯特丹|瑞士|意大利|西班牙|瑞典|挪威|芬兰|丹麦|爱尔兰|波兰|比利时|奥地利|葡萄牙|希腊|捷克|匈牙利)).*$"
+
+# Use #!replace to completely replace original rules
+rules: #!replace
+  - RULE-SET,personalfix,DIRECT
+  - RULE-SET,ai,🤖 AI
+  - RULE-SET,bilibili-hmt,📺 B站
+  - RULE-SET,bilibili,📺 B站
+  - RULE-SET,unban1,🛩️ 墙内
+  - RULE-SET,unban,🛩️ 墙内
+  - RULE-SET,download,🛩️ 墙内
+  - RULE-SET,banad,💩 广告
+  - RULE-SET,googlecn,🛩️ 墙内
+  - RULE-SET,steamcn,🛩️ 墙内
+  - RULE-SET,microsoft,Ⓜ️ Microsoft
+  - RULE-SET,proxygfw,✈️ 起飞
+  - RULE-SET,chinadomain,🛩️ 墙内
+  - RULE-SET,chinacompanyip,🛩️ 墙内
+  - GEOIP,CN,🛩️ 墙内
+  - MATCH,🌐 未知站点
